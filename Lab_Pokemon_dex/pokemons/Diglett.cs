@@ -14,8 +14,10 @@ namespace Lab_Pokemon_dex
             Random random = new Random();
             this.name = "Diglett";
             //random number between >= 430 and < 525
-            this.HP = random.Next(130, 225);
-            this._image = Properties.Resources._050;
+            this.HP = random.Next(30, 32);
+            this._image = Properties.Resources._051;
+            this.Attack = random.Next(103, 230);
+            this.Defense = random.Next(49, 164);
         }
     }
 }

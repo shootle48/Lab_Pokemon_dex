@@ -15,7 +15,7 @@ namespace Lab_Pokemon_dex
             this.name = "Beedrill";
             //random number between >= 430 and < 525
             this.HP = random.Next(240, 335);
-            this._image = Properties.Resources._015;
+            this._image = Properties.Resources._016;
             this.Attack = random.Next(166, 307);
             this.Defense = random.Next(76,197);
         }

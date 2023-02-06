@@ -24,9 +24,10 @@ namespace Lab_Pokemon_dex.pokemons
         public int getHP() { return this.HP; }
         public int getAttack() { return this.Attack; }
         public int getDefense() { return this.Defense; }
-        public void takeDamage(int damage)
+        public int takeDamage(int damage)
         {
             this.HP -= damage;
+            return this.HP;
         }
     }
 }

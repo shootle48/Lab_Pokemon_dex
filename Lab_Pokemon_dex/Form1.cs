@@ -17,8 +17,9 @@ namespace Lab_Pokemon_dex
             pokemons.Add(new Diglett());
 
             this.monster = new Beedrill();
-            this.pictureBox2.Image - this.monster.getImage();
-
+            this.pictureBox2.Image = this.monster.getImage();
+            this.textBox3.Text = this.monster.getName();
+            this.textBox4.Text = this.monster.getHP().ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,6 +27,13 @@ namespace Lab_Pokemon_dex
             selectedPokemon = pokemons[0];
             this.pictureBox1.Image = selectedPokemon.getImage();
             this.textBox1.Text = selectedPokemon.getName();
+            this.textBox2.Text = selectedPokemon.getHP().ToString();
+            if (selectedPokemon.getHP() <= 0) 
+            {
+                this.pictureBox1.Image = null;
+                this.textBox1.Text = null;
+                this.textBox2.Text = null;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -33,6 +41,13 @@ namespace Lab_Pokemon_dex
             selectedPokemon = pokemons[1];
             this.pictureBox1.Image = selectedPokemon.getImage();
             this.textBox1.Text = selectedPokemon.getName();
+            this.textBox2.Text = selectedPokemon.getHP().ToString();
+            if (selectedPokemon.getHP() <= 0)
+            {
+                this.pictureBox1.Image = null;
+                this.textBox1.Text = null;
+                this.textBox2.Text = null;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -40,6 +55,13 @@ namespace Lab_Pokemon_dex
             selectedPokemon = pokemons[2];
             this.pictureBox1.Image = selectedPokemon.getImage();
             this.textBox1.Text = selectedPokemon.getName();
+            this.textBox2.Text = selectedPokemon.getHP().ToString();
+            if (selectedPokemon.getHP() <= 0)
+            {
+                this.pictureBox1.Image = null;
+                this.textBox1.Text = null;
+                this.textBox2.Text = null;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -47,13 +69,38 @@ namespace Lab_Pokemon_dex
             selectedPokemon = pokemons[3];
             this.pictureBox1.Image = selectedPokemon.getImage();
             this.textBox1.Text = selectedPokemon.getName();
+            this.textBox2.Text = selectedPokemon.getHP().ToString();
+            if (selectedPokemon.getHP() <= 0)
+            {
+                this.pictureBox1.Image = null;
+                this.textBox1.Text = null;
+                this.textBox2.Text = null;
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            int damage = this.monster.getDefense() - this.selectedPokemon.getAttack();
-            this.monster.takeDamage(damage);
+            int damage = this.selectedPokemon.getAttack() - this.monster.getDefense();
+            int reflectDamage = this.monster.getAttack() - this.selectedPokemon.getDefense();
+            this.textBox2.Text = this.selectedPokemon.takeDamage(damage).ToString();
+            this.textBox4.Text = this.monster.takeDamage(reflectDamage).ToString();
+            if (this.monster.getHP() <= 0)
+            {
+                this.labelResult.Text = "Yon Won!";
+                this.pictureBox2.Image = null;
+            }
             //display data
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            int getHeal = this.selectedPokemon.getHP() + 50;
+            this.textBox2.Text = getHeal.ToString();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int getDefense = this.selectedPokemon.getDefense() + 50;
         }
     }
 }
