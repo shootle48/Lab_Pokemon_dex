@@ -33,6 +33,7 @@ namespace Lab_Pokemon_dex
                 this.pictureBox1.Image = null;
                 this.textBox1.Text = null;
                 this.textBox2.Text = null;
+                this.selectedPokemon.getAttack();
             }
         }
 
@@ -47,6 +48,7 @@ namespace Lab_Pokemon_dex
                 this.pictureBox1.Image = null;
                 this.textBox1.Text = null;
                 this.textBox2.Text = null;
+                this.selectedPokemon.getAttack();
             }
         }
 
@@ -61,6 +63,7 @@ namespace Lab_Pokemon_dex
                 this.pictureBox1.Image = null;
                 this.textBox1.Text = null;
                 this.textBox2.Text = null;
+                this.selectedPokemon.getAttack();
             }
         }
 
@@ -75,6 +78,7 @@ namespace Lab_Pokemon_dex
                 this.pictureBox1.Image = null;
                 this.textBox1.Text = null;
                 this.textBox2.Text = null;
+                this.selectedPokemon.getAttack();
             }
         }
 
@@ -82,12 +86,19 @@ namespace Lab_Pokemon_dex
         {
             int damage = this.selectedPokemon.getAttack() - this.monster.getDefense();
             int reflectDamage = this.monster.getAttack() - this.selectedPokemon.getDefense();
-            this.textBox2.Text = this.selectedPokemon.takeDamage(damage).ToString();
-            this.textBox4.Text = this.monster.takeDamage(reflectDamage).ToString();
+            if (damage >= 0 && reflectDamage >= 0)
+            {
+                this.textBox2.Text = this.selectedPokemon.takeDamage(damage).ToString();
+                this.textBox4.Text = this.monster.takeDamage(reflectDamage).ToString();
+            }
             if (this.monster.getHP() <= 0)
             {
                 this.labelResult.Text = "Yon Won!";
                 this.pictureBox2.Image = null;
+            }
+            else if(this.selectedPokemon.getHP() <= 0)
+            {
+                this.pictureBox1.Image= null;
             }
             //display data
         }

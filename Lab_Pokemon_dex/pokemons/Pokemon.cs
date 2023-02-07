@@ -22,7 +22,18 @@ namespace Lab_Pokemon_dex.pokemons
         }
         public string getName() { return this.name; }
         public int getHP() { return this.HP; }
-        public int getAttack() { return this.Attack; }
+        public int getAttack() 
+        { 
+            if(this.HP <= 0)
+            {
+                this.Attack = 0;
+                return this.Attack;
+            }
+            else
+            {
+                return this.Attack;
+            }
+        }
         public int getDefense() { return this.Defense; }
         public int takeDamage(int damage)
         {
