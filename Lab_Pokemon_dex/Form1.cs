@@ -31,8 +31,8 @@ namespace Lab_Pokemon_dex
             if (selectedPokemon.getHP() <= 0) 
             {
                 this.pictureBox1.Image = null;
-                this.textBox1.Text = null;
-                this.textBox2.Text = null;
+                this.textBox1.Text = "*Eliminated*";
+                this.textBox2.Text = "0";
                 this.selectedPokemon.getAttack();
             }
         }
@@ -46,8 +46,8 @@ namespace Lab_Pokemon_dex
             if (selectedPokemon.getHP() <= 0)
             {
                 this.pictureBox1.Image = null;
-                this.textBox1.Text = null;
-                this.textBox2.Text = null;
+                this.textBox1.Text = "*Eliminated*";
+                this.textBox2.Text = "0";
                 this.selectedPokemon.getAttack();
             }
         }
@@ -61,8 +61,8 @@ namespace Lab_Pokemon_dex
             if (selectedPokemon.getHP() <= 0)
             {
                 this.pictureBox1.Image = null;
-                this.textBox1.Text = null;
-                this.textBox2.Text = null;
+                this.textBox1.Text = "*Eliminated*";
+                this.textBox2.Text = "0";
                 this.selectedPokemon.getAttack();
             }
         }
@@ -76,8 +76,8 @@ namespace Lab_Pokemon_dex
             if (selectedPokemon.getHP() <= 0)
             {
                 this.pictureBox1.Image = null;
-                this.textBox1.Text = null;
-                this.textBox2.Text = null;
+                this.textBox1.Text = "*Eliminated*";
+                this.textBox2.Text = "0";
                 this.selectedPokemon.getAttack();
             }
         }
@@ -99,14 +99,19 @@ namespace Lab_Pokemon_dex
             else if(this.selectedPokemon.getHP() <= 0)
             {
                 this.pictureBox1.Image= null;
+                this.textBox1.Text = "*Eliminated*";
+                this.textBox2.Text = "0";
             }
             //display data
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            int getHeal = this.selectedPokemon.getHP() + 50;
-            this.textBox2.Text = getHeal.ToString();
+            if (this.selectedPokemon.getHP() > 0) 
+            {
+                int getHeal = this.selectedPokemon.getHP() + 50;
+                this.textBox2.Text = getHeal.ToString();
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
